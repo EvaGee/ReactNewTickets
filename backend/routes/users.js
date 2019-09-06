@@ -34,6 +34,26 @@ app.get('/data', function(req,res){
     });
     });
 
+app.get('/eventsTickets', function(req,res){
+        var sql = 'SELECT * FROM event_tickets_types';
+        db.query(sql, (err, result)=>{
+            if(err) throw err;
+            console.log(result);
+            res.json(result);
+        });
+        });
+
+
+        app.get('/ticketTypes', function(req,res){
+            var sql = 'SELECT * FROM ticket_types';
+            db.query(sql, (err, result)=>{
+                if(err) throw err;
+                console.log(result);
+                res.json(result);
+            });
+            });
+               
+        
 app.post('/data', function(req, res){
 	console.log(req.body); 
     var data = {name:req.body.name, age:req.body.age, job:req.body.job};
